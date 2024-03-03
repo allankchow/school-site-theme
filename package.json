@@ -1,0 +1,19 @@
+{
+  "name": "fwd-wp-school-site",
+  "version": "1.0.0",
+  "description": "FWD 3600 WordPress Site #3 (School)",
+  "author": "FWD Student",
+  "license": "GPL-3.0",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.16",
+    "postcss": "8.4.33",
+    "gulp": "4.0.2",
+    "gulp-postcss": "9.0.1",
+    "gulp-dart-sass": "1.1.0",
+    "gulp-sourcemaps": "3.0.0"
+  }
+}
