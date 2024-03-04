@@ -86,7 +86,7 @@ function sd_register_taxonomies()
         'query_var'         => true,
         'rewrite'           => array('slug' => 'student-type'),
     );
-    register_taxonomy('sd-type', array('sd-student'), $args);
+    register_taxonomy('sd-student-type', array('sd-student'), $args);
 }
 add_action('init', 'sd_register_taxonomies');
 
