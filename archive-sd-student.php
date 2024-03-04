@@ -26,7 +26,7 @@ get_header();
 		'posts_per_page' => -1,
 		'tax_query' => array(
 			array(
-				'taxonomy' 	=> 'sd-type',
+				'taxonomy' 	=> 'sd-student-type',
 				'field'		=> 'slug',
 				'terms'		=> 'photo',
 			)
