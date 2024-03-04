@@ -60,20 +60,20 @@ add_action('init', 'sd_register_custom_post_types');
 //-----------------------------------------
 function sd_register_taxonomies()
 {
-    // Add Student Category taxonomy
+    // Add Student Type taxonomy
     $labels = array(
-        'name'              => _x('Student Categories', 'taxonomy general name'),
-        'singular_name'     => _x('Student Category', 'taxonomy singular name'),
-        'search_items'      => __('Search Student Categories'),
-        'all_items'         => __('All Student Category'),
-        'parent_item'       => __('Parent Student Category'),
-        'parent_item_colon' => __('Parent Student Category:'),
-        'edit_item'         => __('Edit Student Category'),
-        'view_item'         => __('View Student Category'),
-        'update_item'       => __('Update Student Category'),
-        'add_new_item'      => __('Add New Student Category'),
-        'new_item_name'     => __('New Student Category Name'),
-        'menu_name'         => __('Student Category'),
+        'name'              => _x('Student Types', 'taxonomy general name'),
+        'singular_name'     => _x('Student Type', 'taxonomy singular name'),
+        'search_items'      => __('Search Student types'),
+        'all_items'         => __('All Student Type'),
+        'parent_item'       => __('Parent Student Type'),
+        'parent_item_colon' => __('Parent Student Type:'),
+        'edit_item'         => __('Edit Student Type'),
+        'view_item'         => __('View Student Type'),
+        'update_item'       => __('Update Student Type'),
+        'add_new_item'      => __('Add New Student Type'),
+        'new_item_name'     => __('New Student Type Name'),
+        'menu_name'         => __('Student Type'),
     );
     $args = array(
         'hierarchical'      => true,
@@ -84,9 +84,9 @@ function sd_register_taxonomies()
         'show_in_rest'      => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array('slug' => 'student-categories'),
+        'rewrite'           => array('slug' => 'student-type'),
     );
-    register_taxonomy('sd-category', array('sd-student'), $args);
+    register_taxonomy('sd-type', array('sd-student'), $args);
 }
 add_action('init', 'sd_register_taxonomies');
 
