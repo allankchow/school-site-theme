@@ -191,3 +191,65 @@ add_filter( 'excerpt_more', 'fwd_excerpt_more' );
  * Custom Post Types & Taxonomies
  */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+
+
+
+// add previous post button
+function fwd_rest_api_fields()
+{
+
+	// Register a 'previous-post' REST API field for the 'post' object.
+	register_rest_field(
+		'post',          // REST object name
+		'previous_post', // REST field name
+		array(
+			'get_callback'    => 'fwd_prev_post',
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+
+	// Register a 'next-post' REST API field for the 'post' object.
+	register_rest_field(
+		'post',          // REST object name
+		'next_post', // REST field name
+		array(
+			'get_callback'    => 'fwd_next_post',
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+}
+add_action('rest_api_init', 'fwd_rest_api_fields');
+
+// add previous post button
+function fwd_prev_post()
+{
+	$prev_post = get_previous_post();
+	if (!empty($prev_post)) {
+		$link = array(
+			'title' => $prev_post->post_title,
+			'slug'  => $prev_post->post_name,
+			'id'    => $prev_post->ID,
+		);
+		return $link;
+	} else {
+		return '';
+	}
+}
+
+function fwd_next_post()
+{
+	$next_post = get_next_post();
+	if (!empty($next_post)) {
+		$link = array(
+			'title' => $next_post->post_title,
+			'slug'  => $next_post->post_name,
+			'id'    => $next_post->ID,
+		);
+		return $link;
+	} else {
+		return '';
+	}
+}

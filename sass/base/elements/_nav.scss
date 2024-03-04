@@ -1,7 +1,61 @@
+.site-header {
+    display: flex;
+    justify-content: end;
+}
+
 .main-navigation {
-    background: none; /* Removes background */
-    border: none; /* Removes border */
-    color: inherit; /* Inherits the color from its parent */
-    padding: 0; /* Removes padding */
-    margin: 0; /* Removes margin */
+
+    .menu-toggle {
+        font-size: 0;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        // middle line
+        position: relative;
+        background: linear-gradient(white, white) no-repeat center;
+        background-size: 30px 4px;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            margin: 8px auto;
+            transition: all 0.3s;
+        }
+        &::after {
+            content: "";
+        }
+    }
+}
+
+.menu-top-navigation-container {
+    background-color: black;
+    position: absolute;
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        text-transform: uppercase;
+
+        &:visited {
+            color: white;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: #454545;
+        }
+    }
+}
+
+.nav-menu {
+    display: flex;
+    gap: 3rem;
 }

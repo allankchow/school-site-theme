@@ -92,6 +92,7 @@ add_action('init', 'sd_register_taxonomies');
 
 
 
+
 // fixes front end urls.. for when user changes themes
 function sd_rewrite_flush()
 {
@@ -100,3 +101,5 @@ function sd_rewrite_flush()
     flush_rewrite_rules();
 }
 add_action('after_switch_theme', 'sd_rewrite_flush');
+
+
