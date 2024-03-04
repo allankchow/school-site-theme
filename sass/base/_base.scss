@@ -1,6 +1,9 @@
 /* Typography
 --------------------------------------------- */
 @import "typography/typography";
+@import "typography/headings";
+@import "typography/copy";
+
 
 /* Elements
 --------------------------------------------- */
@@ -9,6 +12,8 @@
 @import "elements/lists";
 @import "elements/media";
 @import "elements/tables";
+@import "elements/header";
+@import "elements/nav";
 
 /* Links
 --------------------------------------------- */

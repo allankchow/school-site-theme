@@ -48,6 +48,10 @@ Temporary Items
 .sass-cache
 *.scssc
 
+# Style.css #
+#############
+style.css
+
 
 # Code editor folders or files #
 ######################################

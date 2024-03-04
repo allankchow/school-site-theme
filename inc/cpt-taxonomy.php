@@ -2,7 +2,7 @@
 //-----------------------------------------
 // custom post type (CPT)
 //-----------------------------------------
-function school_demo_register_custom_post_types()
+function sd_register_custom_post_types()
 {
 
     // Register Student CPT
@@ -51,14 +51,14 @@ function school_demo_register_custom_post_types()
         'menu_icon'          => 'dashicons-archive',
         'supports'           => array('title', 'thumbnail', 'editor'),
     );
-    register_post_type('school-demo-student', $args);
+    register_post_type('sd-student', $args);
 }
-add_action('init', 'school_demo_register_custom_post_types');
+add_action('init', 'sd_register_custom_post_types');
 
 //-----------------------------------------
 //  creating taxonomy
 //-----------------------------------------
-function school_demo_register_taxonomies()
+function sd_register_taxonomies()
 {
     // Add Student Category taxonomy
     $labels = array(
@@ -86,17 +86,17 @@ function school_demo_register_taxonomies()
         'query_var'         => true,
         'rewrite'           => array('slug' => 'student-categories'),
     );
-    register_taxonomy('school-demo-category', array('school-demo-student'), $args);
+    register_taxonomy('sd-category', array('sd-student'), $args);
 }
-add_action('init', 'school_demo_register_taxonomies');
+add_action('init', 'sd_register_taxonomies');
 
 
 
 // fixes front end urls.. for when user changes themes
-function school_demo_rewrite_flush()
+function sd_rewrite_flush()
 {
-    school_demo_register_custom_post_types();
-    school_demo_register_taxonomies();
+    sd_register_custom_post_types();
+    sd_register_taxonomies();
     flush_rewrite_rules();
 }
-add_action('after_switch_theme', 'school_demo_rewrite_flush');
+add_action('after_switch_theme', 'sd_rewrite_flush');
