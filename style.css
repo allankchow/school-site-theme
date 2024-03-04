@@ -638,20 +638,20 @@ table {
 	content: "";
 }
 
-.menu-top-navigation-container {
+.menu-navigation-container {
 	background-color: black;
 	position: absolute;
 }
-.menu-top-navigation-container a {
+.menu-navigation-container a {
 	text-decoration: none;
 	color: white;
 	font-weight: 500;
 	text-transform: uppercase;
 }
-.menu-top-navigation-container a:visited {
+.menu-navigation-container a:visited {
 	color: white;
 }
-.menu-top-navigation-container a:hover, .menu-top-navigation-container a:focus {
+.menu-navigation-container a:hover, .menu-navigation-container a:focus {
 	background-color: #454545;
 }
 
