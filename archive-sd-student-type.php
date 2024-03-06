@@ -1,7 +1,6 @@
 <?php
 /**
  * The template for displaying archive pages
- *THIS PAGE WILL BE FOR NEWS POSTS
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package schoolsite
