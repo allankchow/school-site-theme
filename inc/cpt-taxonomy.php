@@ -51,7 +51,7 @@ $args = array(
 		'supports'           => array( 'title', 'thumbnail', 'editor' ),
 );
 
-register_post_type( 'sd-staff', $args );
+register_post_type( 'fwd-staff', $args );
 
     // Register Student CPT
     $labels = array(

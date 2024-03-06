@@ -27,19 +27,19 @@ get_header();
 		<?php
 		$term = get_terms(
 			array(
-				'taxonomy' => 'sd-staff',
+				'taxonomy' => 'fwd-staff',
 				'hide_empty' => false,
 			)
 		);
 		if ($terms && !is_wp_error($term)) {
 			foreach ($terms as $term) {
 				$args = array(
-					'post_type' => 'sd-staff',
+					'post_type' => 'fwd-staff',
 					'posts_per_page' => -1,
 					'orderby' => 'title',
 					'tax_query' => array(
 						array(
-							'taxonomy' => 'sd-staff',
+							'taxonomy' => 'fwd-staff',
 							'fields' => 'slug',
 							'terms' => $term
 						),
