@@ -20,6 +20,9 @@ get_header();
 		?>
 	</header><!-- .page-header -->
 
+
+
+	<!-- designer -->
 	<?php
 	$args = array(
 		'post_type'      => 'sd-student',
@@ -28,14 +31,50 @@ get_header();
 			array(
 				'taxonomy' 	=> 'sd-student-type',
 				'field'		=> 'slug',
-				'terms'		=> 'photo',
+				'terms'		=> 'designer',
 			)
 		)
 	);
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()) {
-		echo '<section class="student-section"><h2>' . esc_html__('Photo', 'sd') . '</h2>';
+		echo '<section class="student-section"><h2>' . esc_html__('Designers', 'sd') . '</h2>';
+
+		while ($query->have_posts()) {
+			$query->the_post();
+	?>
+			<article>
+				<a href="<?php the_permalink(); ?>">
+					<h2><?php the_title(); ?></h2>
+					<?php the_post_thumbnail('large'); ?>
+				</a>
+				<?php the_excerpt(); ?>
+			</article>
+	<?php
+		}
+		wp_reset_postdata();
+		echo '</section>';
+	}
+	?>
+
+
+	<!-- developer -->
+	<?php
+	$args = array(
+		'post_type'      => 'sd-student',
+		'posts_per_page' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' 	=> 'sd-student-type',
+				'field'		=> 'slug',
+				'terms'		=> 'developer',
+			)
+		)
+	);
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		echo '<section class="student-section"><h2>' . esc_html__('Developers', 'sd') . '</h2>';
 
 		while ($query->have_posts()) {
 			$query->the_post();
@@ -57,5 +96,5 @@ get_header();
 </main><!-- #primary -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();
