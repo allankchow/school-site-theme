@@ -253,3 +253,17 @@ function fwd_next_post()
 		return '';
 	}
 }
+
+
+// disable block editor
+function fwd_post_filter($use_block_editor, $post)
+{
+	// add id number of page u want to disable block editor
+	$page_ids = array(29);
+	if (in_array($post->ID, $page_ids)) {
+		return false;
+	} else {
+		return $use_block_editor;
+	}
+}
+add_filter('use_block_editor_for_post', 'fwd_post_filter', 10, 2);
