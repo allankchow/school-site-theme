@@ -267,3 +267,18 @@ function fwd_post_filter($use_block_editor, $post)
 	}
 }
 add_filter('use_block_editor_for_post', 'fwd_post_filter', 10, 2);
+
+
+
+// updating block editor title and also locking block editor for sd-student
+function my_custom_block_editor_scripts() {
+    $screen = get_current_screen();
+    if ( 'sd-student' === $screen->post_type ) {
+        wp_enqueue_script(
+            'my-custom-block-editor',
+            get_stylesheet_directory_uri() . '/js/block-editor-customizations.js',
+            array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
+        );
+    }
+}
+add_action( 'enqueue_block_editor_assets', 'my_custom_block_editor_scripts' );
