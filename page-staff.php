@@ -8,22 +8,70 @@
  * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package school-site-theme
+ * @package schoolsite
  */
 
-// get_headers();
+get_header();
 ?>
 
 <main id="primary" class="site-main">
 
-<?php 
-while ( have_posts() ) :
-	the_post();
+	<?php
+	while (have_posts()):
+		the_post();
+		get_template_part('template-parts/content', 'page');
 
-	get_template_part( 'template-parts/content', 'page' );
+	endwhile; // End of the loop.
+		?>
 
-endwhile; // End of the loop.
-?>
+		<?php
+		$term = get_terms(
+			array(
+				'taxonomy' => 'sd-staff',
+				'hide_empty' => false,
+			)
+		);
+		if ($terms && !is_wp_error($term)) {
+			foreach ($terms as $term) {
+				$args = array(
+					'post_type' => 'sd-staff',
+					'posts_per_page' => -1,
+					'orderby' => 'title',
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'sd-staff',
+							'fields' => 'slug',
+							'terms' => $term
+						),
+					),
+				);
+				$query = new WP_Query($args);
+				echo '<section class="staff-section"<h2>' . esc_html__($term->name, 'sd') . '</h2>';
+				//creating our staff
+				while ($query->have_posts()) {
+					$query->the_post();
+					?>
+					<article id="<?php echo get_the_ID() ?>">
+						<h2>
+							<?php the_title(); ?>
+						</h2>
+						<?php
+						// ACF form validation
+						if (function_exists('get_field')) {
+							if (get_field('staff')) {
+								echo the_field('staff');
+							}
+						}
+						?>
+						<?php the_excerpt(); ?>
+					</article>
+					<?php
+				}
+				wp_reset_postdata();
+			}
+
+		}
+		echo "</section>";
+	?>
 
 </main>
