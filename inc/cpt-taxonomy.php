@@ -42,7 +42,7 @@ $args = array(
 		'show_in_admin_bar'  => true,
 		'show_in_rest'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'Staff' ),
+		'rewrite'            => array( 'slug' => 'staff' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -51,7 +51,7 @@ $args = array(
 		'supports'           => array( 'title', 'thumbnail', 'editor' ),
 );
 
-register_post_type( 'fwd-staff', $args );
+register_post_type( 'sd-staff', $args );
 
     // Register Student CPT
     $labels = array(
