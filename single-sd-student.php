@@ -51,26 +51,31 @@ get_header();
 					),
 				),
 			);
-			$related_students = new WP_Query($args);
+			if (!empty($terms) && !is_wp_error($terms)) {
+				// to display the name of the first term
+				$term_name = $terms[0]->name;
+				echo '<h2>Meet other ' . esc_html($term_name) . ' students:</h2>';
 
-			if ($related_students->have_posts()) {
-	?>
-				<h2>Meet other Designer students:</h2>
-				<ul class="related-students">
-		<?php
-				while ($related_students->have_posts()) {
-					$related_students->the_post();
-					echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+				// new wp query call
+				$related_students = new WP_Query($args);
+
+				// if other students exist, output in a list
+				if ($related_students->have_posts()) {
+					echo '<ul class="related-students">';
+					while ($related_students->have_posts()) {
+						$related_students->the_post();
+						echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+					}
+					echo '</ul>';
 				}
-				echo '</ul>';
+				wp_reset_postdata(); //exit from wp query so things dont go crazy
 			}
-			wp_reset_postdata();
 		}
 
 		echo '</article>';
 
 	endwhile; // End of the loop.
-		?>
+	?>
 
 
 
