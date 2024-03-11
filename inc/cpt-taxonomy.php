@@ -106,7 +106,7 @@ register_post_type( 'fwd-staff', $args );
                 'text' => '"Name Here" Portfolio',
             )),
         ),
-        // 'template_lock' => 'all', // Lock the template for 'sd-student' post type
+        'template_lock' => 'all', // Lock the template for 'sd-student' post type
     );
 
 

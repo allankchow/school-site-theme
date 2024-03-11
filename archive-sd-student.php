@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main page-student-list">
 
 	<h1>The Class</h1>
 

@@ -406,6 +406,7 @@ h6 {
 
 h1 {
 	font-size: 2.5rem;
+	font-weight: 400;
 }
 
 h2 {
@@ -480,6 +481,7 @@ h6 {
 
 h1 {
 	font-size: 2.5rem;
+	font-weight: 400;
 }
 
 h2 {
@@ -546,6 +548,7 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
+	height: 100vh;
 }
 
 hr {
@@ -561,7 +564,7 @@ ol {
 }
 
 ul {
-	list-style: disc;
+	list-style-type: none;
 }
 
 ol {
@@ -666,7 +669,7 @@ a {
 	color: #4169e1;
 }
 a:visited {
-	color: #800080;
+	text-decoration: none;
 }
 a:hover, a:focus, a:active {
 	color: #191970;
@@ -759,6 +762,62 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.page-student-list .students-list {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin: 0 auto;
+	padding: 1.25rem;
+	max-width: 62.5rem;
+}
+.page-student-list .students-list li {
+	max-width: 17.5rem;
+}
+
+.page-schedule {
+	max-width: 70rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+.page-schedule .table-title {
+	text-align: center;
+	margin-bottom: 0;
+}
+.page-schedule table {
+	border-collapse: collapse;
+	table-layout: auto;
+	background-color: white;
+	/* Style table headers */
+	/* Style table cells */
+	/* Add zebra striping to table rows */
+	/* Style for hover effect on rows */
+}
+.page-schedule table th {
+	background-color: #f2f2f2;
+	color: #333;
+	font-weight: bold;
+	text-align: left;
+	padding: 2rem;
+}
+.page-schedule table td {
+	color: #666;
+	padding: 2rem;
+}
+.page-schedule table tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+.page-schedule table tr:hover {
+	background-color: #eaeaea;
+}
+
+.site-footer {
+	background-color: #333333;
+	padding: 4rem;
+	color: white;
+	text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/

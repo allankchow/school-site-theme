@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main page-schedule">
 	<!-- Title -->
 	<?php
 	if (!empty(get_field('section_title'))) {
