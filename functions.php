@@ -287,3 +287,9 @@ function sd_add_image_sizes() {
 
 add_action( 'after_setup_theme', 'sd_add_image_sizes' );
 
+
+// remove "archives:" prefix
+function remove_archives_from_title($title) {
+    return preg_replace('/^\s*Archives:\s*/', '', $title);
+}
+add_filter('get_the_archive_title', 'remove_archives_from_title');
