@@ -193,7 +193,17 @@ add_filter( 'excerpt_more', 'fwd_excerpt_more' );
 require get_template_directory() . '/inc/cpt-taxonomy.php';
 
 
+// add AOS effect function 
+function enqueue_aos_scripts() {
+	// Enqueue AOS CSS
+	wp_enqueue_style('sd-aos-css', get_template_directory_uri() . '/css/aos.css', array(), '2.3.4');
 
+	// Enqueue AOS JavaScript with jQuery dependency
+	wp_enqueue_script('sd-aos-script', get_template_directory_uri() . '/js/aos.js', array(), '1.0.0', array('strategy'  => 'defer'));
+	
+  wp_enqueue_script('sd-script', get_template_directory_uri() . '/js/animate.js', array('sd-aos-script'), '1.0.0',array('strategy'  => 'defer'));
+}
+add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
 
 // add previous post button
 function fwd_rest_api_fields()
