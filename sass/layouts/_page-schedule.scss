@@ -1,0 +1,58 @@
+@use "../abstracts/mixins/mixins" as *;
+@use "../abstracts/functions/functions" as *;
+
+.page-schedule {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+
+    .table-title {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    // table styling
+    table {
+        border-collapse: collapse;
+        table-layout: auto;
+        background-color: white;
+
+        /* Style table headers */
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+            padding: 2rem;            
+        }
+
+        /* Style table cells */
+        td {
+            color: #666;
+            padding: 2rem;
+        }
+
+        /* Add zebra striping to table rows */
+        tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        /* Style for hover effect on rows */
+        tr:hover {
+            background-color: #eaeaea;
+        }
+    }
+}
+
+// @include mq(400px) {
+//     .page-schedule {
+//         table {
+//             th {
+//                 display: inline;
+//             }
+//             td {
+//                 display: inline;
+//             }
+//         }
+//     }
+// }
