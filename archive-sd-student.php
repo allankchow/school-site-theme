@@ -13,12 +13,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<header class="page-header">
-		<?php
-		the_archive_title('<h1 class="page-title">', '</h1>');
-		the_archive_description('<div class="archive-description">', '</div>');
-		?>
-	</header><!-- .page-header -->
+	<h1>The Class</h1>
 
 	<?php
 
@@ -57,7 +52,7 @@ get_header();
 			$students_query->the_post();
 			echo '<li>';
 			// Student Name
-			echo '<h2>' . get_the_title() . '</h2>';
+			echo '<h2><a href="'. get_permalink() .'">' . get_the_title() . '</a></h2>';
 
 			// Featured Image
 			if (has_post_thumbnail()) {
