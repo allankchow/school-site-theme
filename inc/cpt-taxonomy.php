@@ -98,7 +98,18 @@ register_post_type( 'fwd-staff', $args );
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-archive',
         'supports'           => array('title', 'thumbnail', 'editor'),
+        'template' => array(
+            array('core/paragraph', array(
+                'placeholder' => 'Add your introduction here...'
+            )),
+            array('core/button', array(
+                'text' => '"Name Here" Portfolio',
+            )),
+        ),
+        // 'template_lock' => 'all', // Lock the template for 'sd-student' post type
     );
+
+
     register_post_type('sd-student', $args);
 }
 add_action('init', 'sd_register_custom_post_types');

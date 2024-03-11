@@ -269,16 +269,21 @@ function fwd_post_filter($use_block_editor, $post)
 add_filter('use_block_editor_for_post', 'fwd_post_filter', 10, 2);
 
 
-
-// updating block editor title and also locking block editor for sd-student
-function my_custom_block_editor_scripts() {
-    $screen = get_current_screen();
-    if ( 'sd-student' === $screen->post_type ) {
-        wp_enqueue_script(
-            'my-custom-block-editor',
-            get_stylesheet_directory_uri() . '/js/block-editor-customizations.js',
-            array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
-        );
+// update placeholder text for sd student
+function sd_change_title_placeholder( $title, $post ) {
+    if ( 'sd-student' == $post->post_type ) {
+        $title = 'Add student name';
     }
+    return $title;
 }
-add_action( 'enqueue_block_editor_assets', 'my_custom_block_editor_scripts' );
+add_filter( 'enter_title_here', 'sd_change_title_placeholder', 10, 2 );
+
+
+// new image size for student taxonomy
+function sd_add_image_sizes() {
+    add_image_size( 'student-thumb', 200, 300, true );
+	add_image_size( 'student-medium', 300, 200,true );
+}
+
+add_action( 'after_setup_theme', 'sd_add_image_sizes' );
+
