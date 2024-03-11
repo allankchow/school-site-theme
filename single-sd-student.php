@@ -36,7 +36,7 @@ get_header();
 		echo '</div>';
 
 		// Links to other students in their taxonomy term
-		$terms = get_the_terms($post->ID, 'sd-field'); // Adjust 'sd-field' to your taxonomy name
+		$terms = get_the_terms($post->ID, 'sd-student-type');
 		if (!empty($terms) && !is_wp_error($terms)) {
 			$term_ids = wp_list_pluck($terms, 'term_id');
 			$args = array(
@@ -54,7 +54,10 @@ get_header();
 			$related_students = new WP_Query($args);
 
 			if ($related_students->have_posts()) {
-				echo '<ul class="related-students">';
+	?>
+				<h2>Meet other Designer students:</h2>
+				<ul class="related-students">
+		<?php
 				while ($related_students->have_posts()) {
 					$related_students->the_post();
 					echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
@@ -67,21 +70,8 @@ get_header();
 		echo '</article>';
 
 	endwhile; // End of the loop.
-	?>
-
-
-	<!-- previous & next buttons links -->
-	<section>
-		<h2>Meet other Designer students:</h2>
-		<?php
-		the_post_navigation(
-			array(
-				'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'school-site-theme') . '</span> <span class="nav-title">%title</span>',
-				'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'school-site-theme') . '</span> <span class="nav-title">%title</span>',
-			)
-		);
 		?>
-	</section>
+
 
 
 </main><!-- #main -->
