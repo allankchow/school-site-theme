@@ -1,4 +1,8 @@
+
 <?php
+/*
+	* Template Name: Staff Page
+	*/
 /**
  * The template for displaying all pages
  *
@@ -8,7 +12,7 @@
  * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @package schoolsite
+ * @package FWD_Starter_Theme
  */
 
 get_header();
@@ -16,12 +20,12 @@ get_header();
 
 <main id="primary" class="site-main">
 	<?php
-	while (have_posts()): the_post();
+	while (have_posts()):
+		the_post();
 		get_template_part('template-parts/content', 'page');
 	endwhile;
 	?>
 
-	<h1>Staff</h1>
 
 	<?php
 	$terms = get_terms(
@@ -42,7 +46,7 @@ get_header();
 					array(
 						'taxonomy' => 'fwd-staff-category',
 						'field' => 'slug',
-						'terms' => $term->slug
+						'terms' => $term
 					),
 				),
 			);
@@ -58,26 +62,21 @@ get_header();
 						<?php the_title(); ?>
 					</h2>
 					<?php
+					// ACF form validation
 					if (function_exists('get_field')) {
-						// Check if the 'staff' field exists and display its value if it does
 						if (get_field('staff')) {
-								the_field('staff'); // Output the value of the 'staff' field
-								echo '<br>'; // Add a line break for formatting
+							echo the_field('staff');
+							echo '<br>';
 						}
-						// Check if the 'courses' field exists and display its value if it does
-						if (get_field('courses')) {
-								the_field('courses'); // Output the value of the 'courses' field
-								echo '<br>'; // Add a line break for formatting
+						if (get_field('courses_1')) {
+							echo the_field('courses_1');
+							echo '<br>';
 						}
-						// Get the value of the 'url' field
-						$link = get_field('url');
-						// Check if the 'url' field has a value and create a link if it does
+						$link = get_field('url_1');
 						if ($link): ?>
-								<!-- Output a link with the value of the 'url' field -->
-								<a class="button" href="<?php echo esc_url($link); ?>">Instructor Website</a>
+							<a class="button" href="<?php echo esc_url($link); ?>">Instructor Website</a>
 						<?php endif;
-				}
-				
+					}
 					?>
 				</article>
 				<?php
