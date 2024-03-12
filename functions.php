@@ -306,13 +306,3 @@ function remove_archives_from_title($title) {
 }
 add_filter('get_the_archive_title', 'remove_archives_from_title');
 
-function custom_page_template($template) {
-	if (is_page('staff')) {
-			$new_template = locate_template(array('page-staff.php'));
-			if (!empty($new_template)) {
-					return $new_template;
-			}
-	}
-	return $template;
-}
-add_filter('template_include', 'custom_page_template', 99);
