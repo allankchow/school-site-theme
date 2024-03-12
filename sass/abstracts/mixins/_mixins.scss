@@ -73,3 +73,9 @@
         @content;
     }
 }
+
+@mixin maxq($w) {
+    @media (max-width: $w) {
+        @content;
+    }
+}
