@@ -37,43 +37,20 @@
         margin: 0;
         padding-left: 0;
 
-        ul {
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-            float: left;
-            position: absolute;
-            top: 100%;
-            left: -999em;
-            z-index: 99999;
-
-            ul {
-                left: -999em;
-                top: 0;
-            }
-
-            li {
-                &:hover > ul,
-                &.focus > ul {
-                    display: block;
-                    left: auto;
-                }
-            }
-
-            a {
-                width: 200px;
-            }
-
-            :hover > a,
-            .focus > a {
-            }
-
-            a:hover,
-            a.focus {
-            }
+        // Direct child ul of the main menu
+        > li > ul {
+            display: none; // Initially hidden, shown when parent li is toggled
+            position: relative;
+            background-color: #333;
         }
 
-        li:hover > ul,
-        li.focus > ul {
-            left: auto;
+        li {
+            position: relative;
+            // Targeting direct child links for top-level menu items
+            > a {
+                display: block;
+                text-decoration: none;
+            }
         }
     }
 
@@ -94,27 +71,28 @@
     .current-menu-item > a,
     .current_page_ancestor > a,
     .current-menu-ancestor > a {
+        background-color: #3068d1;
     }
 }
 
 .toggled .nav-menu {
     background-color: black;
     position: absolute;
-    top: 7.5rem;
-	left: 0;
-	right: 0;
-	text-align: center;
-	z-index: 10;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
 
     a {
-		padding: 1rem;
+        padding: 1rem;
     }
 }
 
 .nav-menu {
-    gap: 3rem;
+    // gap: 1rem;
 
-	a {
+    a {
         text-decoration: none;
         color: white;
         font-weight: 500;
@@ -138,17 +116,46 @@
 }
 
 @media screen and (min-width: 50em) {
-
-	.menu-navigation-container {
-		// position:initial
-	}
-
     .menu-toggle {
         display: none;
     }
 
-    .main-navigation ul {
-        display: flex;
+    .main-navigation {
+        ul {
+            display: flex; /* Ensures horizontal layout for the main menu */
+            // justify-content: space-between; /* Distributes menu items evenly */
+
+            li {
+                position: relative; /* Needed for absolute positioning of submenus */
+
+                &:hover > ul,
+                &:focus-within > ul {
+                    display: block; /* Display the submenu on hover or focus */
+                    position: absolute;
+                    top: 4.5rem; 
+                }
+
+                a {
+                    padding: 1.5rem;
+                }
+            }
+        }
+
+        ul ul {
+            /* Targeting submenus */
+            display: none; 
+            left: 0;
+            background-color: #333; 
+            z-index: 10; 
+
+            li {
+                display: block; 
+
+                a {
+                    padding: 1.3rem; 
+                }
+            }
+        }
     }
 }
 
