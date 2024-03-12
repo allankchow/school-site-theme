@@ -1,0 +1,33 @@
+.page-student-type-list {
+    max-width: rem(1000);
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+
+    .student {
+        padding-bottom: 1rem;
+
+        img {
+            height: 100%;
+        }
+
+        .student-overview {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .student-content {
+                max-width: rem(700);
+            }
+        }
+    }
+}
+
+@include mq(768px) {
+    .page-student-type-list {
+        .student {
+            .student-overview {
+                flex-direction: row;
+            }
+        }
+    }
+}

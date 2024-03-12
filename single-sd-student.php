@@ -11,30 +11,38 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main page-student-single">
 
 
 	<?php
 	while (have_posts()) :
 		the_post();
 
-		// Student Name
-		echo '<header class="entry-header">';
-		echo '<h1 class="entry-title">' . get_the_title() . '</h1>';
-		echo '</header>';
+	?>
+		<!-- Student Name -->
+		<header class="entry-header">
+			<?php
+			echo '<h1 class="entry-title">' . get_the_title() . '</h1>';
+			?>
+		</header>
+		<div class="student-overview">
+			<?php
+			// Featured Image
+			if (has_post_thumbnail()) {
+				echo '<div class="post-thumbnail">';
+				the_post_thumbnail('medium');
+				echo '</div>';
+			}
 
-		// Featured Image
-		if (has_post_thumbnail()) {
-			echo '<div class="post-thumbnail">';
-			the_post_thumbnail('medium');
-			echo '</div>';
-		}
-
-		// Content
-		echo '<div class="entry-content">';
-		the_content();
-		echo '</div>';
-
+			?>
+			<!-- Content -->
+			<div class="student-content">
+				<?php
+				the_content();
+				?>
+			</div>
+		</div>
+		<?php
 		// Links to other students in their taxonomy term
 		$terms = get_the_terms($post->ID, 'sd-student-type');
 		if (!empty($terms) && !is_wp_error($terms)) {
@@ -72,8 +80,8 @@ get_header();
 			}
 		}
 
-		echo '</article>';
-
+		?>
+	<?php
 	endwhile; // End of the loop.
 	?>
 

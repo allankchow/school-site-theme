@@ -2,7 +2,7 @@
 @use "../abstracts/functions/functions" as *;
 
 .page-schedule {
-    max-width: 70rem;
+    max-width: rem(1000);
     margin: 0 auto;
     padding: 0 2rem 2rem;
 
