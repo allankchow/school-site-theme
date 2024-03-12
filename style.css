@@ -606,63 +606,6 @@ table {
 	width: 100%;
 }
 
-.site-header {
-	display: flex;
-	align-items: center;
-	background-color: black;
-}
-
-.site-header {
-	display: flex;
-	justify-content: end;
-}
-
-.main-navigation .menu-toggle {
-	font-size: 0;
-	width: 40px;
-	height: 40px;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-	position: relative;
-	background: linear-gradient(white, white) no-repeat center;
-	background-size: 30px 4px;
-}
-.main-navigation .menu-toggle::before, .main-navigation .menu-toggle::after {
-	content: "";
-	display: block;
-	width: 30px;
-	height: 4px;
-	background-color: white;
-	margin: 8px auto;
-	transition: all 0.3s;
-}
-.main-navigation .menu-toggle::after {
-	content: "";
-}
-
-.menu-navigation-container {
-	background-color: black;
-	position: absolute;
-}
-.menu-navigation-container a {
-	text-decoration: none;
-	color: white;
-	font-weight: 500;
-	text-transform: uppercase;
-}
-.menu-navigation-container a:visited {
-	color: white;
-}
-.menu-navigation-container a:hover, .menu-navigation-container a:focus {
-	background-color: #454545;
-}
-
-.nav-menu {
-	display: flex;
-	gap: 3rem;
-}
-
 /* Links
 --------------------------------------------- */
 a {
@@ -784,7 +727,7 @@ textarea {
 	padding: 1.25rem;
 }
 .page-student-list .students-list li {
-	max-width: 17.5rem;
+	max-width: 17rem;
 }
 
 .page-student-type-list {
@@ -902,6 +845,32 @@ textarea {
 	color: white;
 }
 
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1rem;
+	background-color: black;
+}
+.site-header .site-branding {
+	display: flex;
+	align-items: center;
+}
+.site-header .site-branding a {
+	color: white;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+}
+.site-header .main-navigation {
+	flex: 1; /* Allows the navigation to take up the available space on the right */
+	display: flex;
+	justify-content: flex-end;
+}
+
+.page-home {
+	padding: 0 2rem;
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -910,6 +879,30 @@ textarea {
 .main-navigation {
 	display: block;
 	width: 100%;
+	align-items: center;
+}
+.main-navigation .menu-toggle {
+	font-size: 0;
+	width: 40px;
+	height: 40px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	background: linear-gradient(white, white) no-repeat center;
+	background-size: 30px 4px;
+}
+.main-navigation .menu-toggle::before, .main-navigation .menu-toggle::after {
+	content: "";
+	display: block;
+	width: 30px;
+	height: 4px;
+	background-color: white;
+	margin: 8px auto;
+	transition: all 0.3s;
+}
+.main-navigation .menu-toggle::after {
+	content: "";
 }
 .main-navigation ul {
 	display: none;
@@ -947,13 +940,41 @@ textarea {
 	display: block;
 	text-decoration: none;
 }
+.toggled .nav-menu {
+	background-color: black;
+	position: absolute;
+	top: 7.5rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.toggled .nav-menu a {
+	padding: 1rem;
+}
+
+.nav-menu {
+	gap: 3rem;
+}
+.nav-menu a {
+	text-decoration: none;
+	color: white;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.nav-menu a:visited {
+	color: white;
+}
+.nav-menu a:hover, .nav-menu a:focus {
+	background-color: #454545;
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 50em) {
 	.menu-toggle {
 		display: none;
 	}

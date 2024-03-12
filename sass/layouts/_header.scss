@@ -1,0 +1,25 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem; 
+    background-color: black;
+
+
+    .site-branding {
+        display: flex;
+        align-items: center;
+
+        a {
+            color: white;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+        }
+    }
+
+    .main-navigation {
+        flex: 1; /* Allows the navigation to take up the available space on the right */
+        display: flex;
+        justify-content: flex-end;
+    }
+}
