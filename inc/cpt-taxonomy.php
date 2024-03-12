@@ -119,6 +119,33 @@ add_action('init', 'sd_register_custom_post_types');
 //-----------------------------------------
 function sd_register_taxonomies()
 {
+	//taxonomy for staff
+	$labels = array(
+		'name'              => _x( 'Staff Categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Staff Category', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Staff Categories' ),
+		'all_items'         => __( 'All Staff Category' ),
+		'parent_item'       => __( 'Parent Staff Category' ),
+		'parent_item_colon' => __( 'Parent Staff Category:' ),
+		'edit_item'         => __( 'Edit Staff Category' ),
+		'view_item'         => __( 'View Staff Category' ),
+		'update_item'       => __( 'Update Staff Category' ),
+		'add_new_item'      => __( 'Add New Staff Category' ),
+		'new_item_name'     => __( 'New Staff Category Name' ),
+		'menu_name'         => __( 'Staff Category' ),
+);
+$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_in_menu'      => true,
+		'show_in_nav_menu'  => true,
+		'show_in_rest'      => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'staff-categories' ),
+);
+register_taxonomy( 'fwd-staff-category', array( 'fwd-staff' ), $args );
     // Add Student Type taxonomy
     $labels = array(
         'name'              => _x('Student Types', 'taxonomy general name'),
