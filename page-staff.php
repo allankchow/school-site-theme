@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 /**
  * The template for displaying all pages
  *
@@ -25,7 +25,7 @@ get_header();
 		?>
 
 		<?php
-		$term = get_terms(
+		$terms = get_terms(
 			array(
 				'taxonomy' => 'fwd-staff-category',
 				'hide_empty' => false,
@@ -64,10 +64,10 @@ get_header();
 							if (get_field('courses')){
 								echo the_field('courses');
 							}
-							$link = get_field('url');
-							if ($link) {
-								echo '<a class="button" href="<?php echo esc_url( $link ); ?>">Instructor Website</a>';
-              }
+							if (get_field('url')) {
+								$link = get_field('url');
+								echo '<a class="button" href="' . esc_url($link) . '">Instructor Website</a>';
+						}
 						}
 						?>
 						<?php the_excerpt(); ?>
@@ -81,4 +81,4 @@ get_header();
 		echo "</section>";
 	?>
 
-</main>
+</main> -->
