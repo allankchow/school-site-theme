@@ -146,6 +146,7 @@ $args = array(
 		'rewrite'           => array( 'slug' => 'staff-categories' ),
 );
 register_taxonomy( 'fwd-staff-category', array( 'fwd-staff' ), $args );
+
     // Add Student Type taxonomy
     $labels = array(
         'name'              => _x('Student Types', 'taxonomy general name'),
