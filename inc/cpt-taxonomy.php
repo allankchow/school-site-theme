@@ -4,7 +4,7 @@
 //-----------------------------------------
 function sd_register_custom_post_types()
 {
-		// Register Staff
+		// Register Staff CPT types
 	$labels = array(
 		'name'                  => _x( 'Staff', 'post type general name' ),
 		'singular_name'         => _x( 'Staff', 'post type singular name'),
