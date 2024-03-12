@@ -27,7 +27,7 @@ get_header();
 		<?php
 		$term = get_terms(
 			array(
-				'taxonomy' => 'fwd-staff',
+				'taxonomy' => 'fwd-staff-category',
 				'hide_empty' => false,
 			)
 		);
@@ -39,7 +39,7 @@ get_header();
 					'orderby' => 'title',
 					'tax_query' => array(
 						array(
-							'taxonomy' => 'fwd-staff',
+							'taxonomy' => 'fwd-staff-category',
 							'fields' => 'slug',
 							'terms' => $term
 						),
@@ -61,6 +61,13 @@ get_header();
 							if (get_field('staff')) {
 								echo the_field('staff');
 							}
+							if (get_field('courses')){
+								echo the_field('courses');
+							}
+							$link = get_field('url');
+							if ($link) {
+								echo '<a class="button" href="<?php echo esc_url( $link ); ?>">Instructor Website</a>';
+              }
 						}
 						?>
 						<?php the_excerpt(); ?>
