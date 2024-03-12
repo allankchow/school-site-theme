@@ -54,6 +54,7 @@ get_header();
 
 			echo '<section class=""><h2>' . esc_html__($term->name, 'fwd') . '</h2>';
 
+			//creating our services
 			while ($query->have_posts()) {
 				$query->the_post();
 				?>
@@ -68,11 +69,11 @@ get_header();
 							echo the_field('staff');
 							echo '<br>';
 						}
-						if (get_field('courses_1')) {
-							echo the_field('courses_1');
+						if (get_field('courses')) {
+							echo the_field('courses');
 							echo '<br>';
 						}
-						$link = get_field('url_1');
+						$link = get_field('url');
 						if ($link): ?>
 							<a class="button" href="<?php echo esc_url($link); ?>">Instructor Website</a>
 						<?php endif;

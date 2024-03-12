@@ -53,7 +53,6 @@ get_header();
 							<a href="<?php the_permalink() ?>">
 								<?php the_title(); ?>
 							</a>
-							<p><?php echo get_the_date(); ?></p>
 						</h3>
 					</article>
 					<?php
@@ -62,6 +61,7 @@ get_header();
 			}
 			?>
 		</section>
+		<a href="<?php echo esc_url( get_permalink( 38 ) ); ?>">See All News</a>
 		<?php
 
 	?>
