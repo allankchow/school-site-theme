@@ -41,7 +41,7 @@ get_header();
 						array(
 							'taxonomy' => 'fwd-staff-category',
 							'fields' => 'slug',
-							'terms' => $term
+							'terms' => $term->slug
 						),
 					),
 				);
