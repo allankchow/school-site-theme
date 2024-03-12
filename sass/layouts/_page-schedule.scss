@@ -44,15 +44,15 @@
     }
 }
 
-// @include mq(400px) {
-//     .page-schedule {
-//         table {
-//             th {
-//                 display: inline;
-//             }
-//             td {
-//                 display: inline;
-//             }
-//         }
-//     }
-// }
+@include maxq(400px) {
+    .page-schedule {
+        table {
+            th {
+                display: block;
+            }
+            td {
+                display: block;
+            }
+        }
+    }
+}
