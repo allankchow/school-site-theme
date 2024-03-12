@@ -14,7 +14,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main page-home">
 
 <!-- pull info from block editor -->
 <?php
