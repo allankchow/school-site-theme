@@ -207,8 +207,6 @@ function enqueue_aos_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
 
-
-
 // add previous post button
 function fwd_rest_api_fields()
 {
