@@ -852,6 +852,15 @@ textarea {
 	padding: 0 1rem;
 	background-color: black;
 }
+.site-header::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 3px;
+	background-color: #3068d1;
+}
 .site-header .site-branding {
 	display: flex;
 	align-items: center;
