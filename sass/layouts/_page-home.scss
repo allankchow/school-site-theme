@@ -11,23 +11,50 @@ h1 {
 	background-color: aqua;
 	font-size: 3rem;
 }
-
-.home-blog {
-	@include flex-row-wrap;
-}
-
-.attachment-feature-image {
-	width: 33%;
-}
-
+// image sizing for large images
 .alignwide {
-	margin-left: calc(-100vw / 6);
-	margin-right: calc(-100vw / 6);
-	max-width: calc(100vw + (100vw / 3));
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1290px;
 }
 
 .alignfull {
 	margin: 32px calc(50% - 50vw);
 	max-width: 100vw;
 	width: 100vw;
+}
+//text flex adjustment for mobile view
+.page-id-27 .wp-container-core-group-layout-3.wp-container-core-group-layout-3 {
+	@include maxq(768px) {
+		background-color: aqua;
+		flex-wrap: wrap;
+	}
+}
+//recent news adjustments
+.home-blog {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1rem;
+}
+
+.attachment-feature-image {
+	width: 33%;
+	min-width: 300px;
+}
+.feature-image {
+	position: relative;
+	z-index: 1;
+}
+
+.text {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 }
