@@ -306,3 +306,7 @@ function remove_archives_from_title($title) {
 }
 add_filter('get_the_archive_title', 'remove_archives_from_title');
 
+function my_theme_setup() {
+	add_theme_support( 'align-wide' );
+}
+add_action( 'after_setup_theme', 'my_theme_setup' );
