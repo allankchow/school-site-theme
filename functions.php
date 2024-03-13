@@ -210,7 +210,6 @@ add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
 // add previous post button
 function fwd_rest_api_fields()
 {
-
 	// Register a 'previous-post' REST API field for the 'post' object.
 	register_rest_field(
 		'post',          // REST object name

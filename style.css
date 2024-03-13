@@ -857,6 +857,15 @@ textarea {
 	padding: 0 1rem;
 	background-color: black;
 }
+.site-header::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 3px;
+	background-color: #3068d1;
+}
 .site-header .site-branding {
 	display: flex;
 	align-items: center;
@@ -949,28 +958,17 @@ h1 {
 	margin: 0;
 	padding-left: 0;
 }
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
+.main-navigation ul > li > ul {
+	display: none;
+	position: relative;
+	background-color: #333;
 }
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
+.main-navigation ul li {
+	position: relative;
 }
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+.main-navigation ul li > a {
 	display: block;
-	left: auto;
-}
-.main-navigation ul ul a {
-	width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
+	text-decoration: none;
 }
 .main-navigation li {
 	position: relative;
@@ -979,10 +977,17 @@ h1 {
 	display: block;
 	text-decoration: none;
 }
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a,
+.main-navigation .current-menu-ancestor > a {
+	background-color: #3068d1;
+}
+
 .toggled .nav-menu {
 	background-color: black;
 	position: absolute;
-	top: 7.5rem;
+	top: 4.5rem;
 	left: 0;
 	right: 0;
 	text-align: center;
@@ -992,9 +997,6 @@ h1 {
 	padding: 1rem;
 }
 
-.nav-menu {
-	gap: 3rem;
-}
 .nav-menu a {
 	text-decoration: none;
 	color: white;
@@ -1019,7 +1021,31 @@ h1 {
 		display: none;
 	}
 	.main-navigation ul {
-		display: flex;
+		display: flex; /* Ensures horizontal layout for the main menu */
+	}
+	.main-navigation ul li {
+		position: relative; /* Needed for absolute positioning of submenus */
+	}
+	.main-navigation ul li:hover > ul, .main-navigation ul li:focus-within > ul {
+		display: block; /* Display the submenu on hover or focus */
+		position: absolute;
+		top: 4.5rem;
+	}
+	.main-navigation ul li a {
+		padding: 1.5rem;
+	}
+	.main-navigation ul ul {
+		/* Targeting submenus */
+		display: none;
+		left: 0;
+		background-color: #333;
+		z-index: 10;
+	}
+	.main-navigation ul ul li {
+		display: block;
+	}
+	.main-navigation ul ul li a {
+		padding: 1.3rem;
 	}
 }
 .site-main .comment-navigation,
