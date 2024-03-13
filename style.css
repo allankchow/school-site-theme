@@ -849,6 +849,11 @@ textarea {
 .site-footer a {
 	color: white;
 }
+.site-footer .footer-links ul {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
 
 .site-header {
 	display: flex;
