@@ -1,0 +1,24 @@
+.post-thumbnail img {
+	display: block;
+}
+
+.site-main .post a.post-thumbnail img {
+	max-height: 400px;
+	object-fit: cover;
+}
+
+span.cat-links,
+span.tags-links,
+span.comments-link {
+	margin-right: 3rem;
+	display: inline-block;
+
+	@include maxq(812px) {
+		display: block;
+	}
+}
+
+article.post,
+.type-post {
+	margin-bottom: 4rem;
+}
