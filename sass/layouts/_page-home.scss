@@ -32,9 +32,14 @@ h1 {
 }
 //recent news adjustments
 .home-blog {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+
+	article {
+		max-width: 300px;
+	}
 }
 
 .attachment-feature-image {
@@ -52,7 +57,7 @@ h1 {
 	bottom: 0;
 	z-index: 1000;
 	width: 100%;
-	background: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.404);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);

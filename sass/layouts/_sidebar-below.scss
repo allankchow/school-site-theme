@@ -1,0 +1,31 @@
+.widget-area {
+	@include mq(876px) {
+		display: flex;
+	}
+}
+
+//search bar and search button
+.wp-block-search__inside-wrapper,
+.wp-block-search__button,
+.wp-block-search__input {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-block-search__input {
+	width: 90%;
+}
+
+button,
+[aria-label='search'] {
+	width: 90%;
+	background: #305c9f;
+	color: white;
+	padding: 1rem;
+}
+
+//recent post & categories
+ul.wp-block-latest-posts__list > li,
+ul.wp-block-categories-list > li {
+	list-style-type: disc;
+}

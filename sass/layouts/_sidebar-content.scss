@@ -2,9 +2,9 @@
 	display: grid;
 	grid-template-columns: ($size__site-sidebar) auto;
 	grid-template-areas:
-		"header header"
-		"sidebar main"
-		"footer footer";
+		'header header'
+		'sidebar main'
+		'footer footer';
 }
 
 .site-header {
@@ -24,4 +24,4 @@
 	grid-area: footer;
 }
 
-@import "no-sidebar";
+@import 'no-sidebar';

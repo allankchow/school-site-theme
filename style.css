@@ -718,6 +718,36 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+@media (min-width: 876px) {
+	.widget-area {
+		display: flex;
+	}
+}
+
+.wp-block-search__inside-wrapper,
+.wp-block-search__button,
+.wp-block-search__input {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-block-search__input {
+	width: 90%;
+}
+
+button,
+[aria-label=search] {
+	width: 90%;
+	background: #305c9f;
+	color: white;
+	padding: 1rem;
+}
+
+ul.wp-block-latest-posts__list > li,
+ul.wp-block-categories-list > li {
+	list-style-type: disc;
+}
+
 .page-student-list {
 	max-width: 62.5rem;
 	margin: 0 auto;
@@ -840,6 +870,35 @@ textarea {
 		display: block;
 	}
 }
+.post-thumbnail img {
+	display: block;
+}
+
+.site-main .post a.post-thumbnail img {
+	max-height: 400px;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+span.cat-links,
+span.tags-links,
+span.comments-link {
+	margin-right: 3rem;
+	display: inline-block;
+}
+@media (max-width: 812px) {
+	span.cat-links,
+	span.tags-links,
+	span.comments-link {
+		display: block;
+	}
+}
+
+article.post,
+.type-post {
+	margin-bottom: 4rem;
+}
+
 .site-footer {
 	background-color: #333333;
 	padding: 4rem;
@@ -919,9 +978,13 @@ h1 {
 }
 
 .home-blog {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.home-blog article {
+	max-width: 300px;
 }
 
 .attachment-feature-image {
@@ -940,7 +1003,7 @@ h1 {
 	bottom: 0;
 	z-index: 1000;
 	width: 100%;
-	background: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.404);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
