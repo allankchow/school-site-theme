@@ -1026,13 +1026,13 @@ h1 {
 		display: none;
 	}
 	.main-navigation ul {
-		display: flex; /* Ensures horizontal layout for the main menu */
+		display: flex;
 	}
 	.main-navigation ul li {
-		position: relative; /* Needed for absolute positioning of submenus */
+		position: relative;
 	}
 	.main-navigation ul li:hover > ul, .main-navigation ul li:focus-within > ul {
-		display: block; /* Display the submenu on hover or focus */
+		display: block;
 		position: absolute;
 		top: 4.5rem;
 	}
