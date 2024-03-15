@@ -1,6 +1,11 @@
+#page > #secondary,
 .widget-area {
 	@include mq(876px) {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		max-width: 1000px;
+		margin: 0 auto;
 	}
 }
 
@@ -16,7 +21,7 @@
 	width: 90%;
 }
 
-button,
+.wp-block-search__inside-wrapper > button,
 [aria-label='search'] {
 	width: 90%;
 	background: #305c9f;
@@ -28,4 +33,12 @@ button,
 ul.wp-block-latest-posts__list > li,
 ul.wp-block-categories-list > li {
 	list-style-type: disc;
+}
+
+ul.wp-block-latest-posts__list {
+	margin: 0 0 1.5em 1.3em;
+}
+
+ul.wp-block-categories-list {
+	margin: 0 0 1.5em -1.2em;
 }

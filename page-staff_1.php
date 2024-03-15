@@ -1,8 +1,7 @@
-
 <?php
 /*
-	* Template Name: Staff Page
-	*/
+ * Template Name: Staff Page
+ */
 /**
  * The template for displaying all pages
  *
@@ -51,40 +50,50 @@ get_header();
 				),
 			);
 			$query = new WP_Query($args);
-
-			echo '<section class=""><h2>' . esc_html__($term->name, 'fwd') . '</h2>';
-
-			//creating our services
-			while ($query->have_posts()) {
-				$query->the_post();
-				?>
-				<article id="<?php echo get_the_ID(); ?>">
-					<h2>
-						<?php the_title(); ?>
-					</h2>
-					<?php
-					// ACF form validation
-					if (function_exists('get_field')) {
-						if (get_field('staff')) {
-							echo the_field('staff');
-							echo '<br>';
-						}
-						if (get_field('courses')) {
-							echo the_field('courses');
-							echo '<br>';
-						}
-						$link = get_field('url');
-						if ($link): ?>
-							<a class="button" href="<?php echo esc_url($link); ?>">Instructor Website</a>
-						<?php endif;
-					}
-					?>
-				</article>
+			?>
+			<section class="staff-wrap">
+				<h2>
+					<?php echo esc_html__($term->name, 'fwd'); ?>
+				</h2>
 				<?php
-			}
-			wp_reset_postdata();
+				//creating our services
+				echo "<div class='individual-staff-wrap'>";
+				while ($query->have_posts()) {
+					$query->the_post();
+					?>
+					<article id="<?php echo get_the_ID(); ?>">
+						<h2>
+							<?php the_title(); ?>
+						</h2>
+						<?php
+						// ACF form validation
+						if (function_exists('get_field')) {
+							if ($staff = get_field('staff')) {
+								echo '<p>'. $staff .'</p>';
+								echo '<br>';
+							}
+							if ($courses = get_field('courses')) {
+								echo '<span>'. $courses .'</span>';
+								echo '<br>';
+							}
+							$link = get_field('url');
+							if ($link): ?>
+								<a class="button" href="<?php echo esc_url($link); ?>">Instructor Website</a>
+							<?php endif;
+						}
+						?>
+					</article>
+					<?php
+				}
+				wp_reset_postdata();
+				?>
+				</div>
+			</section>
+			<?php
 		}
+		wp_reset_postdata();
 	}
+
 	?>
 </main><!-- #primary -->
 

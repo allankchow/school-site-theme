@@ -1,0 +1,22 @@
+//600px
+
+section.staff-wrap > h2 {
+	background: aqua;
+	text-decoration: underline;
+	width: 100%;
+}
+
+div.individual-staff-wrap {
+	display: block;
+	width: 100%;
+	@include mq(600px) {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: nowrap;
+	}
+}
+
+div.individual-staff-wrap,
+.button {
+	margin-bottom: 3rem;
+}
