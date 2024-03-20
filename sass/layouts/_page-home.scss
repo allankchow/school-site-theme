@@ -7,8 +7,12 @@
 	}
 }
 
+.page-id-27 p,
+.page-id-27 h1 {
+	padding: 0 2rem;
+}
+
 h1 {
-	background-color: aqua;
 	font-size: 3rem;
 }
 // image sizing for large images
@@ -26,7 +30,6 @@ h1 {
 //text flex adjustment for mobile view
 .page-id-27 .wp-container-core-group-layout-3.wp-container-core-group-layout-3 {
 	@include maxq(768px) {
-		background-color: aqua;
 		flex-wrap: wrap;
 	}
 }

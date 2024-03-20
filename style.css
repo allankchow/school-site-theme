@@ -554,6 +554,7 @@ body {
 main {
 	max-width: 1000px;
 	margin: 0 auto;
+	padding: 0 2rem;
 }
 
 hr {
@@ -748,6 +749,10 @@ textarea {
 	padding: 1rem;
 }
 
+.wp-block-group__inner-container {
+	padding: 0 1rem;
+}
+
 ul.wp-block-latest-posts__list > li,
 ul.wp-block-categories-list > li {
 	list-style-type: disc;
@@ -884,7 +889,6 @@ ul.wp-block-categories-list {
 	}
 }
 section.staff-wrap > h2 {
-	background: aqua;
 	text-decoration: underline;
 	width: 100%;
 }
@@ -989,8 +993,12 @@ article.post,
 	display: grid;
 }
 
+.page-id-27 p,
+.page-id-27 h1 {
+	padding: 0 2rem;
+}
+
 h1 {
-	background-color: aqua;
 	font-size: 3rem;
 }
 
@@ -1008,7 +1016,6 @@ h1 {
 
 @media (max-width: 768px) {
 	.page-id-27 .wp-container-core-group-layout-3.wp-container-core-group-layout-3 {
-		background-color: aqua;
 		flex-wrap: wrap;
 	}
 }

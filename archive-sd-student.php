@@ -29,7 +29,7 @@ get_header();
 	function custom_excerpt_more($more)
 	{
 		global $post;
-		return '... <a href="' . get_permalink($post->ID) . '">Read More about the Student</a>';
+		return '<a href="' . get_permalink($post->ID) . '"> Read More about the Student...</a>';
 	}
 	add_filter('excerpt_more', 'custom_excerpt_more');
 
