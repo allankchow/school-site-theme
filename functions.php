@@ -176,14 +176,14 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-//excerpt length to 50 words per post
+//excerpt length to 50 words per post for news
 function fwd_excerpt_length () {
 	return 50;
 }
 add_filter( 'excerpt_length', 'fwd_excerpt_length', 999 );
 
 function fwd_excerpt_more() {
-  return '...';
+  return '[...]';
 }
 add_filter( 'excerpt_more', 'fwd_excerpt_more' );
 
@@ -285,6 +285,9 @@ function sd_change_title_placeholder( $title, $post ) {
     if ( 'sd-student' == $post->post_type ) {
         $title = 'Add student name';
     }
+		if ( 'fwd-staff' == $post->post_type ) {
+			$title = 'Add Staff name';
+	}
     return $title;
 }
 add_filter( 'enter_title_here', 'sd_change_title_placeholder', 10, 2 );
