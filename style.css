@@ -993,6 +993,10 @@ article.post,
 	display: grid;
 }
 
+.page-id-27 p.site-title {
+	padding: 0;
+}
+
 .page-id-27 p,
 .page-id-27 h1 {
 	padding: 0 2rem;
